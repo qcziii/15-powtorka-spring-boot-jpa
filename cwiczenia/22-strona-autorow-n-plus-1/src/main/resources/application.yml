@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:library;DB_CLOSE_DELAY=-1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+    open-in-view: false
+    properties:
+      hibernate:
+        # Statistics: how many SQL queries were sent (used by the tests, visible in the log below)
+        generate_statistics: true
+
+logging:
+  level:
+    # Every SQL query (in tests: target/surefire-reports/*-output.txt). Count them!
+    org.hibernate.SQL: debug
+    # Summary after every session: "... nanoseconds spent preparing N JDBC statements"
+    org.hibernate.session.metrics: debug

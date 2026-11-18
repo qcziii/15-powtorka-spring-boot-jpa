@@ -1,0 +1,8 @@
+shop:
+  discount:
+    # Discount for every order, in percent
+    percent: 10
+  shipping:
+    price: 15.00
+    # Orders from this amount (after the discount) have free shipping
+    free-from: 200.00

@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:cinema;DB_CLOSE_DELAY=-1
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    # data.sql runs after Hibernate has created the tables
+    defer-datasource-initialization: true
+    open-in-view: false
+
+logging:
+  level:
+    org.hibernate.SQL: debug

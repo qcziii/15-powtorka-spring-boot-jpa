@@ -1,0 +1,5 @@
+# Development profile: free shipping everywhere and a different shop name
+shop:
+  name: Sklep TEST
+  shipping:
+    price: 0.00

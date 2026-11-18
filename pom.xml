@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Parent and aggregator of all exercises. `mvn test-compile` in this directory compiles everything at once
+     (and opens all exercises together in IntelliJ). Exercises 01-02 are about Maven itself: there you DO edit pom.xml. -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>4.0.8</version>
+        <relativePath/>
+    </parent>
+    <groupId>pl.kurs</groupId>
+    <artifactId>powtorka-spring-boot-jpa</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <java.version>21</java.version>
+    </properties>
+
+    <modules>
+        <module>cwiczenia/01-projekt-sie-nie-kompiluje</module>
+        <module>cwiczenia/02-brakujacy-plik-i-zaleznosc</module>
+        <module>cwiczenia/03-ktory-bean</module>
+        <module>cwiczenia/04-konfiguracja-ignorowana</module>
+        <module>cwiczenia/05-raport-z-cudzymi-danymi</module>
+        <module>cwiczenia/06-ustawienia-i-profile</module>
+        <module>cwiczenia/07-rest-notatki</module>
+        <module>cwiczenia/08-kontroler-nie-odpowiada</module>
+        <module>cwiczenia/09-walidacja-i-bledy</module>
+        <module>cwiczenia/10-encja-i-repozytorium</module>
+        <module>cwiczenia/11-encja-zamowienia</module>
+        <module>cwiczenia/12-zapytania-w-repozytorium</module>
+        <module>cwiczenia/13-komentarze-bez-posta</module>
+        <module>cwiczenia/14-pozycje-zamowienia</module>
+        <module>cwiczenia/15-encja-w-odpowiedzi-json</module>
+        <module>cwiczenia/16-zmiany-same-sie-zapisuja</module>
+        <module>cwiczenia/17-przelew-gubi-pieniadze</module>
+        <module>cwiczenia/18-audyt-i-anulowanie</module>
+        <module>cwiczenia/19-import-wywraca-sie-w-calosci</module>
+        <module>cwiczenia/20-zmiany-klienta-gina</module>
+        <module>cwiczenia/21-lista-zamowien-n-plus-1</module>
+        <module>cwiczenia/22-strona-autorow-n-plus-1</module>
+        <module>cwiczenia/23-projekt-biblioteka</module>
+    </modules>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <configuration>
+                        <!-- Application logs from the tests go to target/surefire-reports/*-output.txt, not to the screen. -->
+                        <redirectTestOutputToFile>true</redirectTestOutputToFile>
+                        <trimStackTrace>true</trimStackTrace>
+                        <!-- Test names from @DisplayName in the reports (and in check.sh). -->
+                        <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+                            <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+                        </statelessTestsetReporter>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

@@ -1,0 +1,10 @@
+shop:
+  name: Sklep Kursanta
+  countries:
+    - PL
+    - CZ
+    - SK
+
+shipping:
+  price: 15.00
+  free-from: 200.00
